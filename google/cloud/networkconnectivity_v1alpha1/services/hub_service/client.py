@@ -79,8 +79,8 @@ class HubServiceClientMeta(type):
 
 
 class HubServiceClient(metaclass=HubServiceClientMeta):
-    """Connectivity Hub is a hub-and-spoke abstraction for network
-    connectivity management in Google Cloud. The Hub aims to reduce
+    """Network Connectivity Center is a hub-and-spoke abstraction
+    for network connectivity management in Google Cloud. It reduces
     operational complexity through a simple, centralized
     connectivity management model.
     """
@@ -532,13 +532,13 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         Returns:
             google.cloud.networkconnectivity_v1alpha1.types.Hub:
-                The Connectivity Hub is a hub-and-
-                poke abstraction for network
+                Network Connectivity Center is a hub-
+                nd-spoke abstraction for network
                 connectivity management in Google Cloud.
-                It aims to reduce operational complexity
+                It reduces operational complexity
                 through a simple, centralized
-                connectivity management model. Here is
-                the resource message of a Hub.
+                connectivity management model. Following
+                is the resource message of a hub.
 
         """
         # Create or coerce a protobuf request object.
@@ -630,11 +630,11 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
             google.api_core.operation.Operation:
                 An object representing a long-running operation.
 
-                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1alpha1.types.Hub` The Connectivity Hub is a hub-and-spoke abstraction for network connectivity
-                   management in Google Cloud. It aims to reduce
-                   operational complexity through a simple, centralized
-                   connectivity management model. Here is the resource
-                   message of a Hub.
+                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1alpha1.types.Hub` Network Connectivity Center is a hub-and-spoke abstraction for
+                   network connectivity management in Google Cloud. It
+                   reduces operational complexity through a simple,
+                   centralized connectivity management model. Following
+                   is the resource message of a hub.
 
         """
         # Create or coerce a protobuf request object.
@@ -734,11 +734,11 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
             google.api_core.operation.Operation:
                 An object representing a long-running operation.
 
-                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1alpha1.types.Hub` The Connectivity Hub is a hub-and-spoke abstraction for network connectivity
-                   management in Google Cloud. It aims to reduce
-                   operational complexity through a simple, centralized
-                   connectivity management model. Here is the resource
-                   message of a Hub.
+                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1alpha1.types.Hub` Network Connectivity Center is a hub-and-spoke abstraction for
+                   network connectivity management in Google Cloud. It
+                   reduces operational complexity through a simple,
+                   centralized connectivity management model. Following
+                   is the resource message of a hub.
 
         """
         # Create or coerce a protobuf request object.
