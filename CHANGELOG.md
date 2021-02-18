@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.1](https://www.github.com/googleapis/python-network-connectivity/compare/v0.1.0...v0.1.1) (2021-02-18)
+
+
+### Documentation
+
+* fix links in README ([#7](https://www.github.com/googleapis/python-network-connectivity/issues/7)) ([b122347](https://www.github.com/googleapis/python-network-connectivity/commit/b1223470c3d34df025b65e119e6836f6bc49cd05))
+
 ## 0.1.0 (2021-01-25)
 
 
