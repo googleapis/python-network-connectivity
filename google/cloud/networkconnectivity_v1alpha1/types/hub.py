@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import proto  # type: ignore
-
 
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
@@ -86,20 +83,13 @@ class Hub(proto.Message):
             this Hub.
     """
 
-    name = proto.Field(proto.STRING, number=1)
-
+    name = proto.Field(proto.STRING, number=1,)
     create_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp,)
-
     update_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
-
-    labels = proto.MapField(proto.STRING, proto.STRING, number=4)
-
-    description = proto.Field(proto.STRING, number=5)
-
-    spokes = proto.RepeatedField(proto.STRING, number=6)
-
-    unique_id = proto.Field(proto.STRING, number=8)
-
+    labels = proto.MapField(proto.STRING, proto.STRING, number=4,)
+    description = proto.Field(proto.STRING, number=5,)
+    spokes = proto.RepeatedField(proto.STRING, number=6,)
+    unique_id = proto.Field(proto.STRING, number=8,)
     state = proto.Field(proto.ENUM, number=9, enum="State",)
 
 
@@ -139,28 +129,18 @@ class Spoke(proto.Message):
             this Hub.
     """
 
-    name = proto.Field(proto.STRING, number=1)
-
+    name = proto.Field(proto.STRING, number=1,)
     create_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp,)
-
     update_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
-
-    labels = proto.MapField(proto.STRING, proto.STRING, number=4)
-
-    description = proto.Field(proto.STRING, number=5)
-
-    hub = proto.Field(proto.STRING, number=6)
-
-    linked_vpn_tunnels = proto.RepeatedField(proto.STRING, number=12)
-
-    linked_interconnect_attachments = proto.RepeatedField(proto.STRING, number=13)
-
+    labels = proto.MapField(proto.STRING, proto.STRING, number=4,)
+    description = proto.Field(proto.STRING, number=5,)
+    hub = proto.Field(proto.STRING, number=6,)
+    linked_vpn_tunnels = proto.RepeatedField(proto.STRING, number=12,)
+    linked_interconnect_attachments = proto.RepeatedField(proto.STRING, number=13,)
     linked_router_appliance_instances = proto.RepeatedField(
         proto.MESSAGE, number=14, message="RouterApplianceInstance",
     )
-
-    unique_id = proto.Field(proto.STRING, number=11)
-
+    unique_id = proto.Field(proto.STRING, number=11,)
     state = proto.Field(proto.ENUM, number=15, enum="State",)
 
 
@@ -184,15 +164,11 @@ class ListHubsRequest(proto.Message):
             Sort the results by a certain order.
     """
 
-    parent = proto.Field(proto.STRING, number=1)
-
-    page_size = proto.Field(proto.INT32, number=2)
-
-    page_token = proto.Field(proto.STRING, number=3)
-
-    filter = proto.Field(proto.STRING, number=4)
-
-    order_by = proto.Field(proto.STRING, number=5)
+    parent = proto.Field(proto.STRING, number=1,)
+    page_size = proto.Field(proto.INT32, number=2,)
+    page_token = proto.Field(proto.STRING, number=3,)
+    filter = proto.Field(proto.STRING, number=4,)
+    order_by = proto.Field(proto.STRING, number=5,)
 
 
 class ListHubsResponse(proto.Message):
@@ -216,10 +192,8 @@ class ListHubsResponse(proto.Message):
         return self
 
     hubs = proto.RepeatedField(proto.MESSAGE, number=1, message="Hub",)
-
-    next_page_token = proto.Field(proto.STRING, number=2)
-
-    unreachable = proto.RepeatedField(proto.STRING, number=3)
+    next_page_token = proto.Field(proto.STRING, number=2,)
+    unreachable = proto.RepeatedField(proto.STRING, number=3,)
 
 
 class GetHubRequest(proto.Message):
@@ -232,7 +206,7 @@ class GetHubRequest(proto.Message):
             Required. Name of the Hub resource to get.
     """
 
-    name = proto.Field(proto.STRING, number=1)
+    name = proto.Field(proto.STRING, number=1,)
 
 
 class CreateHubRequest(proto.Message):
@@ -268,13 +242,10 @@ class CreateHubRequest(proto.Message):
             (00000000-0000-0000-0000-000000000000).
     """
 
-    parent = proto.Field(proto.STRING, number=1)
-
-    hub_id = proto.Field(proto.STRING, number=2)
-
+    parent = proto.Field(proto.STRING, number=1,)
+    hub_id = proto.Field(proto.STRING, number=2,)
     hub = proto.Field(proto.MESSAGE, number=3, message="Hub",)
-
-    request_id = proto.Field(proto.STRING, number=4)
+    request_id = proto.Field(proto.STRING, number=4,)
 
 
 class UpdateHubRequest(proto.Message):
@@ -314,10 +285,8 @@ class UpdateHubRequest(proto.Message):
     """
 
     update_mask = proto.Field(proto.MESSAGE, number=1, message=field_mask.FieldMask,)
-
     hub = proto.Field(proto.MESSAGE, number=2, message="Hub",)
-
-    request_id = proto.Field(proto.STRING, number=3)
+    request_id = proto.Field(proto.STRING, number=3,)
 
 
 class DeleteHubRequest(proto.Message):
@@ -347,9 +316,8 @@ class DeleteHubRequest(proto.Message):
             (00000000-0000-0000-0000-000000000000).
     """
 
-    name = proto.Field(proto.STRING, number=1)
-
-    request_id = proto.Field(proto.STRING, number=2)
+    name = proto.Field(proto.STRING, number=1,)
+    request_id = proto.Field(proto.STRING, number=2,)
 
 
 class ListSpokesRequest(proto.Message):
@@ -371,15 +339,11 @@ class ListSpokesRequest(proto.Message):
             Sort the results by a certain order.
     """
 
-    parent = proto.Field(proto.STRING, number=1)
-
-    page_size = proto.Field(proto.INT32, number=2)
-
-    page_token = proto.Field(proto.STRING, number=3)
-
-    filter = proto.Field(proto.STRING, number=4)
-
-    order_by = proto.Field(proto.STRING, number=5)
+    parent = proto.Field(proto.STRING, number=1,)
+    page_size = proto.Field(proto.INT32, number=2,)
+    page_token = proto.Field(proto.STRING, number=3,)
+    filter = proto.Field(proto.STRING, number=4,)
+    order_by = proto.Field(proto.STRING, number=5,)
 
 
 class ListSpokesResponse(proto.Message):
@@ -402,10 +366,8 @@ class ListSpokesResponse(proto.Message):
         return self
 
     spokes = proto.RepeatedField(proto.MESSAGE, number=1, message="Spoke",)
-
-    next_page_token = proto.Field(proto.STRING, number=2)
-
-    unreachable = proto.RepeatedField(proto.STRING, number=3)
+    next_page_token = proto.Field(proto.STRING, number=2,)
+    unreachable = proto.RepeatedField(proto.STRING, number=3,)
 
 
 class GetSpokeRequest(proto.Message):
@@ -417,7 +379,7 @@ class GetSpokeRequest(proto.Message):
             Required. The name of Spoke resource.
     """
 
-    name = proto.Field(proto.STRING, number=1)
+    name = proto.Field(proto.STRING, number=1,)
 
 
 class CreateSpokeRequest(proto.Message):
@@ -452,13 +414,10 @@ class CreateSpokeRequest(proto.Message):
             (00000000-0000-0000-0000-000000000000).
     """
 
-    parent = proto.Field(proto.STRING, number=1)
-
-    spoke_id = proto.Field(proto.STRING, number=2)
-
+    parent = proto.Field(proto.STRING, number=1,)
+    spoke_id = proto.Field(proto.STRING, number=2,)
     spoke = proto.Field(proto.MESSAGE, number=3, message="Spoke",)
-
-    request_id = proto.Field(proto.STRING, number=4)
+    request_id = proto.Field(proto.STRING, number=4,)
 
 
 class UpdateSpokeRequest(proto.Message):
@@ -498,10 +457,8 @@ class UpdateSpokeRequest(proto.Message):
     """
 
     update_mask = proto.Field(proto.MESSAGE, number=1, message=field_mask.FieldMask,)
-
     spoke = proto.Field(proto.MESSAGE, number=2, message="Spoke",)
-
-    request_id = proto.Field(proto.STRING, number=3)
+    request_id = proto.Field(proto.STRING, number=3,)
 
 
 class DeleteSpokeRequest(proto.Message):
@@ -531,9 +488,8 @@ class DeleteSpokeRequest(proto.Message):
             (00000000-0000-0000-0000-000000000000).
     """
 
-    name = proto.Field(proto.STRING, number=1)
-
-    request_id = proto.Field(proto.STRING, number=2)
+    name = proto.Field(proto.STRING, number=1,)
+    request_id = proto.Field(proto.STRING, number=2,)
 
 
 class RouterApplianceInstance(proto.Message):
@@ -550,11 +506,9 @@ class RouterApplianceInstance(proto.Message):
 
     """
 
-    virtual_machine = proto.Field(proto.STRING, number=1)
-
-    ip_address = proto.Field(proto.STRING, number=3)
-
-    network_interface = proto.Field(proto.STRING, number=2)
+    virtual_machine = proto.Field(proto.STRING, number=1,)
+    ip_address = proto.Field(proto.STRING, number=3,)
+    network_interface = proto.Field(proto.STRING, number=2,)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

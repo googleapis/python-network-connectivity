@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 import functools
 import re
@@ -37,7 +35,6 @@ from google.cloud.networkconnectivity_v1alpha1.types import hub as gcn_hub
 from google.protobuf import empty_pb2 as empty  # type: ignore
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
-
 from .transports.base import HubServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import HubServiceGrpcAsyncIOTransport
 from .client import HubServiceClient
@@ -69,25 +66,20 @@ class HubServiceAsyncClient:
     parse_spoke_path = staticmethod(HubServiceClient.parse_spoke_path)
     vpn_tunnel_path = staticmethod(HubServiceClient.vpn_tunnel_path)
     parse_vpn_tunnel_path = staticmethod(HubServiceClient.parse_vpn_tunnel_path)
-
     common_billing_account_path = staticmethod(
         HubServiceClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         HubServiceClient.parse_common_billing_account_path
     )
-
     common_folder_path = staticmethod(HubServiceClient.common_folder_path)
     parse_common_folder_path = staticmethod(HubServiceClient.parse_common_folder_path)
-
     common_organization_path = staticmethod(HubServiceClient.common_organization_path)
     parse_common_organization_path = staticmethod(
         HubServiceClient.parse_common_organization_path
     )
-
     common_project_path = staticmethod(HubServiceClient.common_project_path)
     parse_common_project_path = staticmethod(HubServiceClient.parse_common_project_path)
-
     common_location_path = staticmethod(HubServiceClient.common_location_path)
     parse_common_location_path = staticmethod(
         HubServiceClient.parse_common_location_path
@@ -178,7 +170,6 @@ class HubServiceAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
-
         self._client = HubServiceClient(
             credentials=credentials,
             transport=transport,
@@ -207,7 +198,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -238,7 +228,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
 
@@ -291,7 +280,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -323,7 +311,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -386,7 +373,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``hub_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -418,7 +404,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
         if hub is not None:
@@ -489,7 +474,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -521,7 +505,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if hub is not None:
             request.hub = hub
         if update_mask is not None:
@@ -577,7 +560,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -617,7 +599,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -669,7 +650,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -699,7 +679,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
 
@@ -749,7 +728,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -779,7 +757,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -841,7 +818,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``spoke_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -872,7 +848,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
         if spoke is not None:
@@ -943,7 +918,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -974,7 +948,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if spoke is not None:
             request.spoke = spoke
         if update_mask is not None:
@@ -1032,7 +1005,6 @@ class HubServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1072,7 +1044,6 @@ class HubServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
