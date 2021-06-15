@@ -34,8 +34,11 @@ setuptools.setup(
     author="Google LLC",
     author_email="googleapis-packages@google.com",
     license="Apache 2.0",
-    url="https://github.com/googleapis/python-network-connectivity",
-    packages=setuptools.PEP420PackageFinder.find(),
+    url="https://github.com/googleapis/python-network-connectivity",    packages=[
+        package
+        for package in setuptools.PEP420PackageFinder.find()
+        if package.startswith("google")
+    ],,
     namespace_packages=("google", "google.cloud"),
     platforms="Posix; MacOS X; Windows",
     include_package_data=True,
