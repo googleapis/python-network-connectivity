@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://www.github.com/googleapis/python-network-connectivity/compare/v0.3.0...v0.3.1) (2021-06-22)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-network-connectivity/issues/1127)) ([#44](https://www.github.com/googleapis/python-network-connectivity/issues/44)) ([39475e1](https://www.github.com/googleapis/python-network-connectivity/commit/39475e101d8baaa235f20d7a52efc176f5e7de9e)), closes [#1126](https://www.github.com/googleapis/python-network-connectivity/issues/1126)
+
 ## [0.3.0](https://www.github.com/googleapis/python-network-connectivity/compare/v0.2.0...v0.3.0) (2021-06-16)
 
 
