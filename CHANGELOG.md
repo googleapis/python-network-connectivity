@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.4.1](https://www.github.com/googleapis/python-network-connectivity/compare/v0.4.0...v0.4.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#55](https://www.github.com/googleapis/python-network-connectivity/issues/55)) ([efcacf5](https://www.github.com/googleapis/python-network-connectivity/commit/efcacf507d9e03d0357326e581a72447891aa84d))
+
 ## [0.4.0](https://www.github.com/googleapis/python-network-connectivity/compare/v0.3.0...v0.4.0) (2021-07-01)
 
 
