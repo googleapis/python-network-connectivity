@@ -86,16 +86,16 @@ class HubServiceGrpcTransport(HubServiceTransport):
             api_mtls_endpoint (Optional[str]): Deprecated. The mutual TLS endpoint.
                 If provided, it overrides the ``host`` argument and tries to create
                 a mutual TLS channel with client SSL credentials from
-                ``client_cert_source`` or applicatin default SSL credentials.
+                ``client_cert_source`` or application default SSL credentials.
             client_cert_source (Optional[Callable[[], Tuple[bytes, bytes]]]):
                 Deprecated. A callback to provide client SSL certificate bytes and
                 private key bytes, both in PEM format. It is ignored if
                 ``api_mtls_endpoint`` is None.
             ssl_channel_credentials (grpc.ChannelCredentials): SSL credentials
-                for grpc channel. It is ignored if ``channel`` is provided.
+                for the grpc channel. It is ignored if ``channel`` is provided.
             client_cert_source_for_mtls (Optional[Callable[[], Tuple[bytes, bytes]]]):
                 A callback to provide client certificate bytes and private key bytes,
-                both in PEM format. It is used to configure mutual TLS channel. It is
+                both in PEM format. It is used to configure a mutual TLS channel. It is
                 ignored if ``channel`` or ``ssl_channel_credentials`` is provided.
             quota_project_id (Optional[str]): An optional project to use for billing
                 and quota.
@@ -472,63 +472,6 @@ class HubServiceGrpcTransport(HubServiceTransport):
                 response_deserializer=operations_pb2.Operation.FromString,
             )
         return self._stubs["update_spoke"]
-
-    @property
-    def deactivate_spoke(
-        self,
-    ) -> Callable[[hub.DeactivateSpokeRequest], operations_pb2.Operation]:
-        r"""Return a callable for the deactivate spoke method over gRPC.
-
-        Deactivates the specified spoke. Deactivating keeps
-        the spoke information for future re-activation, but
-        disconnects the Google Cloud network from non-Google-
-        Cloud network.
-
-        Returns:
-            Callable[[~.DeactivateSpokeRequest],
-                    ~.Operation]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "deactivate_spoke" not in self._stubs:
-            self._stubs["deactivate_spoke"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/DeactivateSpoke",
-                request_serializer=hub.DeactivateSpokeRequest.serialize,
-                response_deserializer=operations_pb2.Operation.FromString,
-            )
-        return self._stubs["deactivate_spoke"]
-
-    @property
-    def activate_spoke(
-        self,
-    ) -> Callable[[hub.ActivateSpokeRequest], operations_pb2.Operation]:
-        r"""Return a callable for the activate spoke method over gRPC.
-
-        Activates the specified spoke. Activating reconnects
-        the Google Cloud network with the non-Google-Cloud
-        network.
-
-        Returns:
-            Callable[[~.ActivateSpokeRequest],
-                    ~.Operation]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "activate_spoke" not in self._stubs:
-            self._stubs["activate_spoke"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/ActivateSpoke",
-                request_serializer=hub.ActivateSpokeRequest.serialize,
-                response_deserializer=operations_pb2.Operation.FromString,
-            )
-        return self._stubs["activate_spoke"]
 
     @property
     def delete_spoke(

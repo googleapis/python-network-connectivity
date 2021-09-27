@@ -1,5 +1,29 @@
 # Changelog
 
+### [0.6.1](https://www.github.com/googleapis/python-network-connectivity/compare/v0.6.0...v0.6.1) (2021-09-24)
+
+
+### Bug Fixes
+
+* add 'dict' annotation type to 'request' ([ae7ade1](https://www.github.com/googleapis/python-network-connectivity/commit/ae7ade17d232d016130b386e30812ab7c320f046))
+
+## [0.6.0](https://www.github.com/googleapis/python-network-connectivity/compare/v0.5.0...v0.6.0) (2021-08-25)
+
+
+### Features
+
+* Add hub.routing_vpcs field ([3fd21d4](https://www.github.com/googleapis/python-network-connectivity/commit/3fd21d487df645e7b0ac1efc6a32c8b19ac5fb19))
+
+
+### Bug Fixes
+
+* Remove ActivateSpoke and DeactivateSpoke methods ([#69](https://www.github.com/googleapis/python-network-connectivity/issues/69)) ([3fd21d4](https://www.github.com/googleapis/python-network-connectivity/commit/3fd21d487df645e7b0ac1efc6a32c8b19ac5fb19))
+
+
+### Documentation
+
+* Specify that site_to_site_data_transfer field must be set to true ([3fd21d4](https://www.github.com/googleapis/python-network-connectivity/commit/3fd21d487df645e7b0ac1efc6a32c8b19ac5fb19))
+
 ## [0.5.0](https://www.github.com/googleapis/python-network-connectivity/compare/v0.4.0...v0.5.0) (2021-07-28)
 
 

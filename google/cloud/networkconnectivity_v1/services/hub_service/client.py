@@ -17,7 +17,7 @@ from collections import OrderedDict
 from distutils import util
 import os
 import re
-from typing import Callable, Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib  # type: ignore
@@ -210,6 +210,21 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         m = re.match(
             r"^projects/(?P<project>.+?)/regions/(?P<region>.+?)/interconnectAttachments/(?P<resource_id>.+?)$",
             path,
+        )
+        return m.groupdict() if m else {}
+
+    @staticmethod
+    def network_path(project: str, resource_id: str,) -> str:
+        """Returns a fully-qualified network string."""
+        return "projects/{project}/global/networks/{resource_id}".format(
+            project=project, resource_id=resource_id,
+        )
+
+    @staticmethod
+    def parse_network_path(path: str) -> Dict[str, str]:
+        """Parses a network path into its component segments."""
+        m = re.match(
+            r"^projects/(?P<project>.+?)/global/networks/(?P<resource_id>.+?)$", path
         )
         return m.groupdict() if m else {}
 
@@ -426,7 +441,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def list_hubs(
         self,
-        request: hub.ListHubsRequest = None,
+        request: Union[hub.ListHubsRequest, dict] = None,
         *,
         parent: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -436,7 +451,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         r"""Lists hubs in a given project.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.ListHubsRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.ListHubsRequest, dict]):
                 The request object. Request for
                 [HubService.ListHubs][google.cloud.networkconnectivity.v1.HubService.ListHubs]
                 method.
@@ -506,7 +521,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def get_hub(
         self,
-        request: hub.GetHubRequest = None,
+        request: Union[hub.GetHubRequest, dict] = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -516,7 +531,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         r"""Gets details about the specified hub.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.GetHubRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.GetHubRequest, dict]):
                 The request object. Request for
                 [HubService.GetHub][google.cloud.networkconnectivity.v1.HubService.GetHub]
                 method.
@@ -582,7 +597,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def create_hub(
         self,
-        request: gcn_hub.CreateHubRequest = None,
+        request: Union[gcn_hub.CreateHubRequest, dict] = None,
         *,
         parent: str = None,
         hub: gcn_hub.Hub = None,
@@ -594,7 +609,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         r"""Creates a new hub in the specified project.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.CreateHubRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.CreateHubRequest, dict]):
                 The request object. Request for
                 [HubService.CreateHub][google.cloud.networkconnectivity.v1.HubService.CreateHub]
                 method.
@@ -684,7 +699,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def update_hub(
         self,
-        request: gcn_hub.UpdateHubRequest = None,
+        request: Union[gcn_hub.UpdateHubRequest, dict] = None,
         *,
         hub: gcn_hub.Hub = None,
         update_mask: field_mask_pb2.FieldMask = None,
@@ -696,7 +711,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         specified hub.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.UpdateHubRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.UpdateHubRequest, dict]):
                 The request object. Request for
                 [HubService.UpdateHub][google.cloud.networkconnectivity.v1.HubService.UpdateHub]
                 method.
@@ -783,7 +798,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def delete_hub(
         self,
-        request: hub.DeleteHubRequest = None,
+        request: Union[hub.DeleteHubRequest, dict] = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -793,7 +808,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         r"""Deletes the specified hub.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.DeleteHubRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.DeleteHubRequest, dict]):
                 The request object. The request for
                 [HubService.DeleteHub][google.cloud.networkconnectivity.v1.HubService.DeleteHub].
             name (str):
@@ -875,7 +890,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def list_spokes(
         self,
-        request: hub.ListSpokesRequest = None,
+        request: Union[hub.ListSpokesRequest, dict] = None,
         *,
         parent: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -886,7 +901,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         location.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.ListSpokesRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.ListSpokesRequest, dict]):
                 The request object. The request for
                 [HubService.ListSpokes][google.cloud.networkconnectivity.v1.HubService.ListSpokes].
             parent (str):
@@ -954,7 +969,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def get_spoke(
         self,
-        request: hub.GetSpokeRequest = None,
+        request: Union[hub.GetSpokeRequest, dict] = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -964,7 +979,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         r"""Gets details about the specified spoke.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.GetSpokeRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.GetSpokeRequest, dict]):
                 The request object. The request for
                 [HubService.GetSpoke][google.cloud.networkconnectivity.v1.HubService.GetSpoke].
             name (str):
@@ -1033,7 +1048,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def create_spoke(
         self,
-        request: hub.CreateSpokeRequest = None,
+        request: Union[hub.CreateSpokeRequest, dict] = None,
         *,
         parent: str = None,
         spoke: hub.Spoke = None,
@@ -1046,7 +1061,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         location.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.CreateSpokeRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.CreateSpokeRequest, dict]):
                 The request object. The request for
                 [HubService.CreateSpoke][google.cloud.networkconnectivity.v1.HubService.CreateSpoke].
             parent (str):
@@ -1141,7 +1156,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def update_spoke(
         self,
-        request: hub.UpdateSpokeRequest = None,
+        request: Union[hub.UpdateSpokeRequest, dict] = None,
         *,
         spoke: hub.Spoke = None,
         update_mask: field_mask_pb2.FieldMask = None,
@@ -1152,7 +1167,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         r"""Updates the parameters of the specified spoke.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.UpdateSpokeRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.UpdateSpokeRequest, dict]):
                 The request object. Request for
                 [HubService.UpdateSpoke][google.cloud.networkconnectivity.v1.HubService.UpdateSpoke]
                 method.
@@ -1245,192 +1260,9 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         # Done; return the response.
         return response
 
-    def deactivate_spoke(
-        self,
-        request: hub.DeactivateSpokeRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> operation.Operation:
-        r"""Deactivates the specified spoke. Deactivating keeps
-        the spoke information for future re-activation, but
-        disconnects the Google Cloud network from non-Google-
-        Cloud network.
-
-        Args:
-            request (google.cloud.networkconnectivity_v1.types.DeactivateSpokeRequest):
-                The request object. The request for
-                [HubService.DeactivateSpoke][google.cloud.networkconnectivity.v1.HubService.DeactivateSpoke].
-            name (str):
-                Required. The name of the spoke to
-                deactivate.
-
-                This corresponds to the ``name`` field
-                on the ``request`` instance; if ``request`` is provided, this
-                should not be set.
-            retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                should be retried.
-            timeout (float): The timeout for this request.
-            metadata (Sequence[Tuple[str, str]]): Strings which should be
-                sent along with the request as metadata.
-
-        Returns:
-            google.api_core.operation.Operation:
-                An object representing a long-running operation.
-
-                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Spoke` A spoke represents a connection between your Google Cloud network resources
-                   and a non-Google-Cloud network.
-
-                   When you create a spoke, you associate it with a hub.
-                   You must also identify a value for exactly one of the
-                   following fields:
-
-                   -  linked_vpn_tunnels
-                   -  linked_interconnect_attachments
-                   -  linked_router_appliance_instances
-
-        """
-        # Create or coerce a protobuf request object.
-        # Sanity check: If we got a request object, we should *not* have
-        # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([name])
-        if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
-
-        # Minor optimization to avoid making a copy if the user passes
-        # in a hub.DeactivateSpokeRequest.
-        # There's no risk of modifying the input as we've already verified
-        # there are no flattened fields.
-        if not isinstance(request, hub.DeactivateSpokeRequest):
-            request = hub.DeactivateSpokeRequest(request)
-            # If we have keyword arguments corresponding to fields on the
-            # request, apply these.
-            if name is not None:
-                request.name = name
-
-        # Wrap the RPC method; this adds retry and timeout information,
-        # and friendly error handling.
-        rpc = self._transport._wrapped_methods[self._transport.deactivate_spoke]
-
-        # Certain fields should be provided within the metadata header;
-        # add these here.
-        metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
-        )
-
-        # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
-
-        # Wrap the response in an operation future.
-        response = operation.from_gapic(
-            response,
-            self._transport.operations_client,
-            hub.Spoke,
-            metadata_type=common.OperationMetadata,
-        )
-
-        # Done; return the response.
-        return response
-
-    def activate_spoke(
-        self,
-        request: hub.ActivateSpokeRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> operation.Operation:
-        r"""Activates the specified spoke. Activating reconnects
-        the Google Cloud network with the non-Google-Cloud
-        network.
-
-        Args:
-            request (google.cloud.networkconnectivity_v1.types.ActivateSpokeRequest):
-                The request object. The request for
-                [HubService.ActivateSpoke][google.cloud.networkconnectivity.v1.HubService.ActivateSpoke].
-            name (str):
-                Required. The name of the spoke to
-                activate.
-
-                This corresponds to the ``name`` field
-                on the ``request`` instance; if ``request`` is provided, this
-                should not be set.
-            retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                should be retried.
-            timeout (float): The timeout for this request.
-            metadata (Sequence[Tuple[str, str]]): Strings which should be
-                sent along with the request as metadata.
-
-        Returns:
-            google.api_core.operation.Operation:
-                An object representing a long-running operation.
-
-                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Spoke` A spoke represents a connection between your Google Cloud network resources
-                   and a non-Google-Cloud network.
-
-                   When you create a spoke, you associate it with a hub.
-                   You must also identify a value for exactly one of the
-                   following fields:
-
-                   -  linked_vpn_tunnels
-                   -  linked_interconnect_attachments
-                   -  linked_router_appliance_instances
-
-        """
-        # Create or coerce a protobuf request object.
-        # Sanity check: If we got a request object, we should *not* have
-        # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([name])
-        if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
-
-        # Minor optimization to avoid making a copy if the user passes
-        # in a hub.ActivateSpokeRequest.
-        # There's no risk of modifying the input as we've already verified
-        # there are no flattened fields.
-        if not isinstance(request, hub.ActivateSpokeRequest):
-            request = hub.ActivateSpokeRequest(request)
-            # If we have keyword arguments corresponding to fields on the
-            # request, apply these.
-            if name is not None:
-                request.name = name
-
-        # Wrap the RPC method; this adds retry and timeout information,
-        # and friendly error handling.
-        rpc = self._transport._wrapped_methods[self._transport.activate_spoke]
-
-        # Certain fields should be provided within the metadata header;
-        # add these here.
-        metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
-        )
-
-        # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
-
-        # Wrap the response in an operation future.
-        response = operation.from_gapic(
-            response,
-            self._transport.operations_client,
-            hub.Spoke,
-            metadata_type=common.OperationMetadata,
-        )
-
-        # Done; return the response.
-        return response
-
     def delete_spoke(
         self,
-        request: hub.DeleteSpokeRequest = None,
+        request: Union[hub.DeleteSpokeRequest, dict] = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -1440,7 +1272,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         r"""Deletes the specified spoke.
 
         Args:
-            request (google.cloud.networkconnectivity_v1.types.DeleteSpokeRequest):
+            request (Union[google.cloud.networkconnectivity_v1.types.DeleteSpokeRequest, dict]):
                 The request object. The request for
                 [HubService.DeleteSpoke][google.cloud.networkconnectivity.v1.HubService.DeleteSpoke].
             name (str):
