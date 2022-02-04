@@ -232,6 +232,24 @@ class HubServiceAsyncClient:
     ) -> pagers.ListHubsAsyncPager:
         r"""Lists hubs in a given project.
 
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_list_hubs():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.ListHubsRequest(
+                    parent="parent_value",
+                )
+
+                # Make the request
+                page_result = client.list_hubs(request=request)
+                for response in page_result:
+                    print(response)
+
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.ListHubsRequest, dict]):
                 The request object. Request for
@@ -312,6 +330,25 @@ class HubServiceAsyncClient:
     ) -> hub.Hub:
         r"""Gets details about the specified hub.
 
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_get_hub():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.GetHubRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.get_hub(request=request)
+
+                # Handle response
+                print(response)
+
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.GetHubRequest, dict]):
                 The request object. Request for
@@ -389,6 +426,28 @@ class HubServiceAsyncClient:
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Creates a new hub in the specified project.
+
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_create_hub():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.CreateHubRequest(
+                    parent="parent_value",
+                    hub_id="hub_id_value",
+                )
+
+                # Make the request
+                operation = client.create_hub(request=request)
+
+                print("Waiting for operation to complete...")
+
+                response = operation.result()
+                print(response)
 
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.CreateHubRequest, dict]):
@@ -492,6 +551,27 @@ class HubServiceAsyncClient:
         r"""Updates the description and/or labels of the
         specified hub.
 
+
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_update_hub():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.UpdateHubRequest(
+                )
+
+                # Make the request
+                operation = client.update_hub(request=request)
+
+                print("Waiting for operation to complete...")
+
+                response = operation.result()
+                print(response)
+
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.UpdateHubRequest, dict]):
                 The request object. Request for
@@ -589,6 +669,27 @@ class HubServiceAsyncClient:
     ) -> operation_async.AsyncOperation:
         r"""Deletes the specified hub.
 
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_delete_hub():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.DeleteHubRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                operation = client.delete_hub(request=request)
+
+                print("Waiting for operation to complete...")
+
+                response = operation.result()
+                print(response)
+
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.DeleteHubRequest, dict]):
                 The request object. The request for
@@ -682,6 +783,25 @@ class HubServiceAsyncClient:
         r"""Lists the spokes in the specified project and
         location.
 
+
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_list_spokes():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.ListSpokesRequest(
+                    parent="parent_value",
+                )
+
+                # Make the request
+                page_result = client.list_spokes(request=request)
+                for response in page_result:
+                    print(response)
+
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.ListSpokesRequest, dict]):
                 The request object. The request for
@@ -759,6 +879,25 @@ class HubServiceAsyncClient:
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> hub.Spoke:
         r"""Gets details about the specified spoke.
+
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_get_spoke():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.GetSpokeRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.get_spoke(request=request)
+
+                # Handle response
+                print(response)
 
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.GetSpokeRequest, dict]):
@@ -841,6 +980,29 @@ class HubServiceAsyncClient:
     ) -> operation_async.AsyncOperation:
         r"""Creates a spoke in the specified project and
         location.
+
+
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_create_spoke():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.CreateSpokeRequest(
+                    parent="parent_value",
+                    spoke_id="spoke_id_value",
+                )
+
+                # Make the request
+                operation = client.create_spoke(request=request)
+
+                print("Waiting for operation to complete...")
+
+                response = operation.result()
+                print(response)
 
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.CreateSpokeRequest, dict]):
@@ -948,6 +1110,26 @@ class HubServiceAsyncClient:
     ) -> operation_async.AsyncOperation:
         r"""Updates the parameters of the specified spoke.
 
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_update_spoke():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.UpdateSpokeRequest(
+                )
+
+                # Make the request
+                operation = client.update_spoke(request=request)
+
+                print("Waiting for operation to complete...")
+
+                response = operation.result()
+                print(response)
+
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.UpdateSpokeRequest, dict]):
                 The request object. Request for
@@ -1052,6 +1234,27 @@ class HubServiceAsyncClient:
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Deletes the specified spoke.
+
+        .. code-block::
+
+            from google.cloud import networkconnectivity_v1
+
+            def sample_delete_spoke():
+                # Create a client
+                client = networkconnectivity_v1.HubServiceClient()
+
+                # Initialize request argument(s)
+                request = networkconnectivity_v1.DeleteSpokeRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                operation = client.delete_spoke(request=request)
+
+                print("Waiting for operation to complete...")
+
+                response = operation.result()
+                print(response)
 
         Args:
             request (Union[google.cloud.networkconnectivity_v1.types.DeleteSpokeRequest, dict]):
