@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -552,7 +552,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_list_hubs():
                 # Create a client
@@ -660,7 +660,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_get_hub():
                 # Create a client
@@ -765,7 +765,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_create_hub():
                 # Create a client
@@ -900,7 +900,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_update_hub():
                 # Create a client
@@ -1027,7 +1027,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_delete_hub():
                 # Create a client
@@ -1149,7 +1149,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_list_spokes():
                 # Create a client
@@ -1255,7 +1255,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_get_spoke():
                 # Create a client
@@ -1362,7 +1362,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_create_spoke():
                 # Create a client
@@ -1497,7 +1497,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_update_spoke():
                 # Create a client
@@ -1629,7 +1629,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import networkconnectivity_v1
+                    from google.cloud import networkconnectivity_v1
 
             def sample_delete_spoke():
                 # Create a client
