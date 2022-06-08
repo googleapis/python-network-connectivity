@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.3](https://github.com/googleapis/python-network-connectivity/compare/v0.6.2...v0.6.3) (2022-06-08)
+
+
+### Bug Fixes
+
+* **deps:** require protobuf<4.0.0 on v0 branch ([#180](https://github.com/googleapis/python-network-connectivity/issues/180)) ([24030ee](https://github.com/googleapis/python-network-connectivity/commit/24030eeb5c22134c3ef2ab24e962e34a264ebf4c))
+
 ### [0.6.2](https://github.com/googleapis/python-network-connectivity/compare/v0.6.1...v0.6.2) (2022-04-04)
 
 
