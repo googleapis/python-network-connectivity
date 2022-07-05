@@ -3674,7 +3674,6 @@ def test_hub_service_transport_auth_adc(transport_class):
     [
         transports.HubServiceGrpcTransport,
         transports.HubServiceGrpcAsyncIOTransport,
-        transports.HubServiceRestTransport,
     ],
 )
 def test_hub_service_transport_auth_gdch_credentials(transport_class):
