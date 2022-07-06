@@ -3,7 +3,7 @@ Python Client for Network Connectivity Center API
 
 |stable| |pypi| |versions|
 
-`Network Connectivity Center API`_: 
+`Network Connectivity Center API`_: The Network Connectivity API will be home to various services which provide information pertaining to network connectivity.  This includes information like interconnects, VPNs, VPCs, routing information, ip address details, etc. This information will help customers verify their network configurations and helps them to discover misconfigurations, inconsistencies, etc.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
