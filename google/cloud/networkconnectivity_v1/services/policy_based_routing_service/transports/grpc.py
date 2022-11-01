@@ -23,19 +23,17 @@ from google.auth.transport.grpc import SslCredentials  # type: ignore
 from google.longrunning import operations_pb2  # type: ignore
 import grpc  # type: ignore
 
-from google.cloud.networkconnectivity_v1.types import hub
-from google.cloud.networkconnectivity_v1.types import hub as gcn_hub
+from google.cloud.networkconnectivity_v1.types import policy_based_routing
 
-from .base import DEFAULT_CLIENT_INFO, HubServiceTransport
+from .base import DEFAULT_CLIENT_INFO, PolicyBasedRoutingServiceTransport
 
 
-class HubServiceGrpcTransport(HubServiceTransport):
-    """gRPC backend transport for HubService.
+class PolicyBasedRoutingServiceGrpcTransport(PolicyBasedRoutingServiceTransport):
+    """gRPC backend transport for PolicyBasedRoutingService.
 
-    Network Connectivity Center is a hub-and-spoke abstraction
-    for network connectivity management in Google Cloud. It reduces
-    operational complexity through a simple, centralized
-    connectivity management model.
+    Policy-Based Routing allows GCP customers to specify
+    flexibile routing policies for Layer 4 traffic traversing
+    through the connected service.
 
     This class defines the same methods as the primary client, so the
     primary client can load the underlying transport implementation
@@ -249,66 +247,20 @@ class HubServiceGrpcTransport(HubServiceTransport):
         return self._operations_client
 
     @property
-    def list_hubs(self) -> Callable[[hub.ListHubsRequest], hub.ListHubsResponse]:
-        r"""Return a callable for the list hubs method over gRPC.
-
-        Lists the Network Connectivity Center hubs associated
-        with a given project.
-
-        Returns:
-            Callable[[~.ListHubsRequest],
-                    ~.ListHubsResponse]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "list_hubs" not in self._stubs:
-            self._stubs["list_hubs"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/ListHubs",
-                request_serializer=hub.ListHubsRequest.serialize,
-                response_deserializer=hub.ListHubsResponse.deserialize,
-            )
-        return self._stubs["list_hubs"]
-
-    @property
-    def get_hub(self) -> Callable[[hub.GetHubRequest], hub.Hub]:
-        r"""Return a callable for the get hub method over gRPC.
-
-        Gets details about a Network Connectivity Center hub.
-
-        Returns:
-            Callable[[~.GetHubRequest],
-                    ~.Hub]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "get_hub" not in self._stubs:
-            self._stubs["get_hub"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/GetHub",
-                request_serializer=hub.GetHubRequest.serialize,
-                response_deserializer=hub.Hub.deserialize,
-            )
-        return self._stubs["get_hub"]
-
-    @property
-    def create_hub(
+    def list_policy_based_routes(
         self,
-    ) -> Callable[[gcn_hub.CreateHubRequest], operations_pb2.Operation]:
-        r"""Return a callable for the create hub method over gRPC.
+    ) -> Callable[
+        [policy_based_routing.ListPolicyBasedRoutesRequest],
+        policy_based_routing.ListPolicyBasedRoutesResponse,
+    ]:
+        r"""Return a callable for the list policy based routes method over gRPC.
 
-        Creates a new Network Connectivity Center hub in the
-        specified project.
+        Lists PolicyBasedRoutes in a given project and
+        location.
 
         Returns:
-            Callable[[~.CreateHubRequest],
-                    ~.Operation]:
+            Callable[[~.ListPolicyBasedRoutesRequest],
+                    ~.ListPolicyBasedRoutesResponse]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -316,26 +268,28 @@ class HubServiceGrpcTransport(HubServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "create_hub" not in self._stubs:
-            self._stubs["create_hub"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/CreateHub",
-                request_serializer=gcn_hub.CreateHubRequest.serialize,
-                response_deserializer=operations_pb2.Operation.FromString,
+        if "list_policy_based_routes" not in self._stubs:
+            self._stubs["list_policy_based_routes"] = self.grpc_channel.unary_unary(
+                "/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/ListPolicyBasedRoutes",
+                request_serializer=policy_based_routing.ListPolicyBasedRoutesRequest.serialize,
+                response_deserializer=policy_based_routing.ListPolicyBasedRoutesResponse.deserialize,
             )
-        return self._stubs["create_hub"]
+        return self._stubs["list_policy_based_routes"]
 
     @property
-    def update_hub(
+    def get_policy_based_route(
         self,
-    ) -> Callable[[gcn_hub.UpdateHubRequest], operations_pb2.Operation]:
-        r"""Return a callable for the update hub method over gRPC.
+    ) -> Callable[
+        [policy_based_routing.GetPolicyBasedRouteRequest],
+        policy_based_routing.PolicyBasedRoute,
+    ]:
+        r"""Return a callable for the get policy based route method over gRPC.
 
-        Updates the description and/or labels of a Network
-        Connectivity Center hub.
+        Gets details of a single PolicyBasedRoute.
 
         Returns:
-            Callable[[~.UpdateHubRequest],
-                    ~.Operation]:
+            Callable[[~.GetPolicyBasedRouteRequest],
+                    ~.PolicyBasedRoute]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -343,98 +297,27 @@ class HubServiceGrpcTransport(HubServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "update_hub" not in self._stubs:
-            self._stubs["update_hub"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/UpdateHub",
-                request_serializer=gcn_hub.UpdateHubRequest.serialize,
-                response_deserializer=operations_pb2.Operation.FromString,
+        if "get_policy_based_route" not in self._stubs:
+            self._stubs["get_policy_based_route"] = self.grpc_channel.unary_unary(
+                "/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/GetPolicyBasedRoute",
+                request_serializer=policy_based_routing.GetPolicyBasedRouteRequest.serialize,
+                response_deserializer=policy_based_routing.PolicyBasedRoute.deserialize,
             )
-        return self._stubs["update_hub"]
+        return self._stubs["get_policy_based_route"]
 
     @property
-    def delete_hub(self) -> Callable[[hub.DeleteHubRequest], operations_pb2.Operation]:
-        r"""Return a callable for the delete hub method over gRPC.
-
-        Deletes a Network Connectivity Center hub.
-
-        Returns:
-            Callable[[~.DeleteHubRequest],
-                    ~.Operation]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "delete_hub" not in self._stubs:
-            self._stubs["delete_hub"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/DeleteHub",
-                request_serializer=hub.DeleteHubRequest.serialize,
-                response_deserializer=operations_pb2.Operation.FromString,
-            )
-        return self._stubs["delete_hub"]
-
-    @property
-    def list_spokes(self) -> Callable[[hub.ListSpokesRequest], hub.ListSpokesResponse]:
-        r"""Return a callable for the list spokes method over gRPC.
-
-        Lists the Network Connectivity Center spokes in a
-        specified project and location.
-
-        Returns:
-            Callable[[~.ListSpokesRequest],
-                    ~.ListSpokesResponse]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "list_spokes" not in self._stubs:
-            self._stubs["list_spokes"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/ListSpokes",
-                request_serializer=hub.ListSpokesRequest.serialize,
-                response_deserializer=hub.ListSpokesResponse.deserialize,
-            )
-        return self._stubs["list_spokes"]
-
-    @property
-    def get_spoke(self) -> Callable[[hub.GetSpokeRequest], hub.Spoke]:
-        r"""Return a callable for the get spoke method over gRPC.
-
-        Gets details about a Network Connectivity Center
-        spoke.
-
-        Returns:
-            Callable[[~.GetSpokeRequest],
-                    ~.Spoke]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "get_spoke" not in self._stubs:
-            self._stubs["get_spoke"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/GetSpoke",
-                request_serializer=hub.GetSpokeRequest.serialize,
-                response_deserializer=hub.Spoke.deserialize,
-            )
-        return self._stubs["get_spoke"]
-
-    @property
-    def create_spoke(
+    def create_policy_based_route(
         self,
-    ) -> Callable[[hub.CreateSpokeRequest], operations_pb2.Operation]:
-        r"""Return a callable for the create spoke method over gRPC.
+    ) -> Callable[
+        [policy_based_routing.CreatePolicyBasedRouteRequest], operations_pb2.Operation
+    ]:
+        r"""Return a callable for the create policy based route method over gRPC.
 
-        Creates a Network Connectivity Center spoke.
+        Creates a new PolicyBasedRoute in a given project and
+        location.
 
         Returns:
-            Callable[[~.CreateSpokeRequest],
+            Callable[[~.CreatePolicyBasedRouteRequest],
                     ~.Operation]:
                 A function that, when called, will call the underlying RPC
                 on the server.
@@ -443,25 +326,26 @@ class HubServiceGrpcTransport(HubServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "create_spoke" not in self._stubs:
-            self._stubs["create_spoke"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/CreateSpoke",
-                request_serializer=hub.CreateSpokeRequest.serialize,
+        if "create_policy_based_route" not in self._stubs:
+            self._stubs["create_policy_based_route"] = self.grpc_channel.unary_unary(
+                "/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/CreatePolicyBasedRoute",
+                request_serializer=policy_based_routing.CreatePolicyBasedRouteRequest.serialize,
                 response_deserializer=operations_pb2.Operation.FromString,
             )
-        return self._stubs["create_spoke"]
+        return self._stubs["create_policy_based_route"]
 
     @property
-    def update_spoke(
+    def delete_policy_based_route(
         self,
-    ) -> Callable[[hub.UpdateSpokeRequest], operations_pb2.Operation]:
-        r"""Return a callable for the update spoke method over gRPC.
+    ) -> Callable[
+        [policy_based_routing.DeletePolicyBasedRouteRequest], operations_pb2.Operation
+    ]:
+        r"""Return a callable for the delete policy based route method over gRPC.
 
-        Updates the parameters of a Network Connectivity
-        Center spoke.
+        Deletes a single PolicyBasedRoute.
 
         Returns:
-            Callable[[~.UpdateSpokeRequest],
+            Callable[[~.DeletePolicyBasedRouteRequest],
                     ~.Operation]:
                 A function that, when called, will call the underlying RPC
                 on the server.
@@ -470,39 +354,13 @@ class HubServiceGrpcTransport(HubServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "update_spoke" not in self._stubs:
-            self._stubs["update_spoke"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/UpdateSpoke",
-                request_serializer=hub.UpdateSpokeRequest.serialize,
+        if "delete_policy_based_route" not in self._stubs:
+            self._stubs["delete_policy_based_route"] = self.grpc_channel.unary_unary(
+                "/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/DeletePolicyBasedRoute",
+                request_serializer=policy_based_routing.DeletePolicyBasedRouteRequest.serialize,
                 response_deserializer=operations_pb2.Operation.FromString,
             )
-        return self._stubs["update_spoke"]
-
-    @property
-    def delete_spoke(
-        self,
-    ) -> Callable[[hub.DeleteSpokeRequest], operations_pb2.Operation]:
-        r"""Return a callable for the delete spoke method over gRPC.
-
-        Deletes a Network Connectivity Center spoke.
-
-        Returns:
-            Callable[[~.DeleteSpokeRequest],
-                    ~.Operation]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "delete_spoke" not in self._stubs:
-            self._stubs["delete_spoke"] = self.grpc_channel.unary_unary(
-                "/google.cloud.networkconnectivity.v1.HubService/DeleteSpoke",
-                request_serializer=hub.DeleteSpokeRequest.serialize,
-                response_deserializer=operations_pb2.Operation.FromString,
-            )
-        return self._stubs["delete_spoke"]
+        return self._stubs["delete_policy_based_route"]
 
     def close(self):
         self.grpc_channel.close()
@@ -512,4 +370,4 @@ class HubServiceGrpcTransport(HubServiceTransport):
         return "grpc"
 
 
-__all__ = ("HubServiceGrpcTransport",)
+__all__ = ("PolicyBasedRoutingServiceGrpcTransport",)

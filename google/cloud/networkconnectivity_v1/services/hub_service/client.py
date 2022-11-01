@@ -552,7 +552,8 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListHubsPager:
-        r"""Lists hubs in a given project.
+        r"""Lists the Network Connectivity Center hubs associated
+        with a given project.
 
         .. code-block:: python
 
@@ -600,8 +601,8 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         Returns:
             google.cloud.networkconnectivity_v1.services.hub_service.pagers.ListHubsPager:
                 Response for
-                [HubService.ListHubs][google.cloud.networkconnectivity.v1.HubService.ListHubs]
-                method.
+                   [HubService.ListHubs][google.cloud.networkconnectivity.v1.HubService.ListHubs]
+                   method.
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -667,7 +668,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> hub.Hub:
-        r"""Gets details about the specified hub.
+        r"""Gets details about a Network Connectivity Center hub.
 
         .. code-block:: python
 
@@ -715,15 +716,16 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         Returns:
             google.cloud.networkconnectivity_v1.types.Hub:
-                A hub is a collection of spokes. A
-                single hub can contain spokes from
-                multiple regions. However, if any of a
-                hub's spokes use the data transfer
-                feature, the resources associated with
-                those spokes must all reside in the same
-                VPC network. Spokes that do not use data
-                transfer can be associated with any VPC
-                network in your project.
+                A Network Connectivity Center hub is
+                a collection of spokes. A single hub can
+                contain spokes from multiple regions.
+                However, if any of a hub's spokes use
+                the data transfer feature, the resources
+                associated with those spokes must all
+                reside in the same VPC network. Spokes
+                that do not use data transfer can be
+                associated with any VPC network in your
+                project.
 
         """
         # Create or coerce a protobuf request object.
@@ -779,7 +781,8 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
-        r"""Creates a new hub in the specified project.
+        r"""Creates a new Network Connectivity Center hub in the
+        specified project.
 
         .. code-block:: python
 
@@ -846,13 +849,13 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
             google.api_core.operation.Operation:
                 An object representing a long-running operation.
 
-                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Hub` A hub is a collection of spokes. A single hub can contain spokes from
-                   multiple regions. However, if any of a hub's spokes
-                   use the data transfer feature, the resources
-                   associated with those spokes must all reside in the
-                   same VPC network. Spokes that do not use data
-                   transfer can be associated with any VPC network in
-                   your project.
+                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Hub` A Network Connectivity Center hub is a collection of spokes. A single hub
+                   can contain spokes from multiple regions. However, if
+                   any of a hub's spokes use the data transfer feature,
+                   the resources associated with those spokes must all
+                   reside in the same VPC network. Spokes that do not
+                   use data transfer can be associated with any VPC
+                   network in your project.
 
         """
         # Create or coerce a protobuf request object.
@@ -919,8 +922,8 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
-        r"""Updates the description and/or labels of the
-        specified hub.
+        r"""Updates the description and/or labels of a Network
+        Connectivity Center hub.
 
         .. code-block:: python
 
@@ -984,13 +987,13 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
             google.api_core.operation.Operation:
                 An object representing a long-running operation.
 
-                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Hub` A hub is a collection of spokes. A single hub can contain spokes from
-                   multiple regions. However, if any of a hub's spokes
-                   use the data transfer feature, the resources
-                   associated with those spokes must all reside in the
-                   same VPC network. Spokes that do not use data
-                   transfer can be associated with any VPC network in
-                   your project.
+                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Hub` A Network Connectivity Center hub is a collection of spokes. A single hub
+                   can contain spokes from multiple regions. However, if
+                   any of a hub's spokes use the data transfer feature,
+                   the resources associated with those spokes must all
+                   reside in the same VPC network. Spokes that do not
+                   use data transfer can be associated with any VPC
+                   network in your project.
 
         """
         # Create or coerce a protobuf request object.
@@ -1054,7 +1057,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
-        r"""Deletes the specified hub.
+        r"""Deletes a Network Connectivity Center hub.
 
         .. code-block:: python
 
@@ -1178,8 +1181,8 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListSpokesPager:
-        r"""Lists the spokes in the specified project and
-        location.
+        r"""Lists the Network Connectivity Center spokes in a
+        specified project and location.
 
         .. code-block:: python
 
@@ -1226,7 +1229,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         Returns:
             google.cloud.networkconnectivity_v1.services.hub_service.pagers.ListSpokesPager:
                 The response for
-                [HubService.ListSpokes][google.cloud.networkconnectivity.v1.HubService.ListSpokes].
+                   [HubService.ListSpokes][google.cloud.networkconnectivity.v1.HubService.ListSpokes].
 
                 Iterating over this object will yield results and
                 resolve additional pages automatically.
@@ -1292,7 +1295,8 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> hub.Spoke:
-        r"""Gets details about the specified spoke.
+        r"""Gets details about a Network Connectivity Center
+        spoke.
 
         .. code-block:: python
 
@@ -1339,8 +1343,9 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
         Returns:
             google.cloud.networkconnectivity_v1.types.Spoke:
-                A spoke represents a connection between your Google Cloud network resources
-                   and a non-Google-Cloud network.
+                A Network Connectivity Center spoke represents a connection between your
+                   Google Cloud network resources and a non-Google-Cloud
+                   network.
 
                    When you create a spoke, you associate it with a hub.
                    You must also identify a value for exactly one of the
@@ -1404,8 +1409,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
-        r"""Creates a spoke in the specified project and
-        location.
+        r"""Creates a Network Connectivity Center spoke.
 
         .. code-block:: python
 
@@ -1471,8 +1475,9 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
             google.api_core.operation.Operation:
                 An object representing a long-running operation.
 
-                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Spoke` A spoke represents a connection between your Google Cloud network resources
-                   and a non-Google-Cloud network.
+                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Spoke` A Network Connectivity Center spoke represents a connection between your
+                   Google Cloud network resources and a non-Google-Cloud
+                   network.
 
                    When you create a spoke, you associate it with a hub.
                    You must also identify a value for exactly one of the
@@ -1547,7 +1552,8 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
-        r"""Updates the parameters of the specified spoke.
+        r"""Updates the parameters of a Network Connectivity
+        Center spoke.
 
         .. code-block:: python
 
@@ -1611,8 +1617,9 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
             google.api_core.operation.Operation:
                 An object representing a long-running operation.
 
-                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Spoke` A spoke represents a connection between your Google Cloud network resources
-                   and a non-Google-Cloud network.
+                The result type for the operation will be :class:`google.cloud.networkconnectivity_v1.types.Spoke` A Network Connectivity Center spoke represents a connection between your
+                   Google Cloud network resources and a non-Google-Cloud
+                   network.
 
                    When you create a spoke, you associate it with a hub.
                    You must also identify a value for exactly one of the
@@ -1686,7 +1693,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
-        r"""Deletes the specified spoke.
+        r"""Deletes a Network Connectivity Center spoke.
 
         .. code-block:: python
 

@@ -20,8 +20,8 @@ import proto  # type: ignore
 __protobuf__ = proto.module(
     package="google.cloud.networkconnectivity.v1",
     manifest={
-        "State",
         "LocationFeature",
+        "State",
         "Hub",
         "RoutingVPC",
         "Spoke",
@@ -46,6 +46,13 @@ __protobuf__ = proto.module(
 )
 
 
+class LocationFeature(proto.Enum):
+    r"""Supported features for a location"""
+    LOCATION_FEATURE_UNSPECIFIED = 0
+    SITE_TO_CLOUD_SPOKES = 1
+    SITE_TO_SITE_SPOKES = 2
+
+
 class State(proto.Enum):
     r"""The State enum represents the lifecycle stage of a Network
     Connectivity Center resource.
@@ -54,22 +61,16 @@ class State(proto.Enum):
     CREATING = 1
     ACTIVE = 2
     DELETING = 3
-
-
-class LocationFeature(proto.Enum):
-    r"""Supported features for a location"""
-    LOCATION_FEATURE_UNSPECIFIED = 0
-    SITE_TO_CLOUD_SPOKES = 1
-    SITE_TO_SITE_SPOKES = 2
+    UPDATING = 6
 
 
 class Hub(proto.Message):
-    r"""A hub is a collection of spokes. A single hub can contain
-    spokes from multiple regions. However, if any of a hub's spokes
-    use the data transfer feature, the resources associated with
-    those spokes must all reside in the same VPC network. Spokes
-    that do not use data transfer can be associated with any VPC
-    network in your project.
+    r"""A Network Connectivity Center hub is a collection of spokes.
+    A single hub can contain spokes from multiple regions. However,
+    if any of a hub's spokes use the data transfer feature, the
+    resources associated with those spokes must all reside in the
+    same VPC network. Spokes that do not use data transfer can be
+    associated with any VPC network in your project.
 
     Attributes:
         name (str):
@@ -143,8 +144,8 @@ class Hub(proto.Message):
 
 
 class RoutingVPC(proto.Message):
-    r"""RoutingVPC contains information about the VPC networks that
-    are associated with a hub's spokes.
+    r"""RoutingVPC contains information about the VPC networks
+    associated with the spokes of a Network Connectivity Center hub.
 
     Attributes:
         uri (str):
@@ -169,8 +170,8 @@ class RoutingVPC(proto.Message):
 
 
 class Spoke(proto.Message):
-    r"""A spoke represents a connection between your Google Cloud network
-    resources and a non-Google-Cloud network.
+    r"""A Network Connectivity Center spoke represents a connection between
+    your Google Cloud network resources and a non-Google-Cloud network.
 
     When you create a spoke, you associate it with a hub. You must also
     identify a value for exactly one of the following fields:
@@ -760,6 +761,9 @@ class LinkedVpnTunnels(proto.Message):
             enabled for these resources. Data transfer is available only
             in `supported
             locations <https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations>`__.
+        vpc_network (str):
+            Output only. The VPC network where these VPN
+            tunnels are located.
     """
 
     uris = proto.RepeatedField(
@@ -769,6 +773,10 @@ class LinkedVpnTunnels(proto.Message):
     site_to_site_data_transfer = proto.Field(
         proto.BOOL,
         number=2,
+    )
+    vpc_network = proto.Field(
+        proto.STRING,
+        number=3,
     )
 
 
@@ -788,6 +796,9 @@ class LinkedInterconnectAttachments(proto.Message):
             enabled for these resources. Data transfer is available only
             in `supported
             locations <https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations>`__.
+        vpc_network (str):
+            Output only. The VPC network where these VLAN
+            attachments are located.
     """
 
     uris = proto.RepeatedField(
@@ -797,6 +808,10 @@ class LinkedInterconnectAttachments(proto.Message):
     site_to_site_data_transfer = proto.Field(
         proto.BOOL,
         number=2,
+    )
+    vpc_network = proto.Field(
+        proto.STRING,
+        number=3,
     )
 
 
@@ -814,6 +829,9 @@ class LinkedRouterApplianceInstances(proto.Message):
             enabled for these resources. Data transfer is available only
             in `supported
             locations <https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations>`__.
+        vpc_network (str):
+            Output only. The VPC network where these
+            router appliance instances are located.
     """
 
     instances = proto.RepeatedField(
@@ -824,6 +842,10 @@ class LinkedRouterApplianceInstances(proto.Message):
     site_to_site_data_transfer = proto.Field(
         proto.BOOL,
         number=2,
+    )
+    vpc_network = proto.Field(
+        proto.STRING,
+        number=3,
     )
 
 
