@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -65,7 +76,7 @@ class PolicyBasedRoutingServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[PolicyBasedRoutingServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -362,7 +373,7 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, PolicyBasedRoutingServiceTransport, None] = None,
+        transport: Optional[Union[str, PolicyBasedRoutingServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -460,11 +471,13 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
 
     def list_policy_based_routes(
         self,
-        request: Union[policy_based_routing.ListPolicyBasedRoutesRequest, dict] = None,
+        request: Optional[
+            Union[policy_based_routing.ListPolicyBasedRoutesRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPolicyBasedRoutesPager:
         r"""Lists PolicyBasedRoutes in a given project and
@@ -574,11 +587,13 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
 
     def get_policy_based_route(
         self,
-        request: Union[policy_based_routing.GetPolicyBasedRouteRequest, dict] = None,
+        request: Optional[
+            Union[policy_based_routing.GetPolicyBasedRouteRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> policy_based_routing.PolicyBasedRoute:
         r"""Gets details of a single PolicyBasedRoute.
@@ -682,13 +697,15 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
 
     def create_policy_based_route(
         self,
-        request: Union[policy_based_routing.CreatePolicyBasedRouteRequest, dict] = None,
+        request: Optional[
+            Union[policy_based_routing.CreatePolicyBasedRouteRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
-        policy_based_route: policy_based_routing.PolicyBasedRoute = None,
-        policy_based_route_id: str = None,
+        parent: Optional[str] = None,
+        policy_based_route: Optional[policy_based_routing.PolicyBasedRoute] = None,
+        policy_based_route_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Creates a new PolicyBasedRoute in a given project and
@@ -830,11 +847,13 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
 
     def delete_policy_based_route(
         self,
-        request: Union[policy_based_routing.DeletePolicyBasedRouteRequest, dict] = None,
+        request: Optional[
+            Union[policy_based_routing.DeletePolicyBasedRouteRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Deletes a single PolicyBasedRoute.

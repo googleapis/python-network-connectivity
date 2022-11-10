@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -64,7 +75,7 @@ class HubServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[HubServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -447,7 +458,7 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, HubServiceTransport, None] = None,
+        transport: Optional[Union[str, HubServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -545,11 +556,11 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def list_hubs(
         self,
-        request: Union[hub.ListHubsRequest, dict] = None,
+        request: Optional[Union[hub.ListHubsRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListHubsPager:
         r"""Lists the Network Connectivity Center hubs associated
@@ -661,11 +672,11 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def get_hub(
         self,
-        request: Union[hub.GetHubRequest, dict] = None,
+        request: Optional[Union[hub.GetHubRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> hub.Hub:
         r"""Gets details about a Network Connectivity Center hub.
@@ -772,13 +783,13 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def create_hub(
         self,
-        request: Union[gcn_hub.CreateHubRequest, dict] = None,
+        request: Optional[Union[gcn_hub.CreateHubRequest, dict]] = None,
         *,
-        parent: str = None,
-        hub: gcn_hub.Hub = None,
-        hub_id: str = None,
+        parent: Optional[str] = None,
+        hub: Optional[gcn_hub.Hub] = None,
+        hub_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Creates a new Network Connectivity Center hub in the
@@ -914,12 +925,12 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def update_hub(
         self,
-        request: Union[gcn_hub.UpdateHubRequest, dict] = None,
+        request: Optional[Union[gcn_hub.UpdateHubRequest, dict]] = None,
         *,
-        hub: gcn_hub.Hub = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        hub: Optional[gcn_hub.Hub] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Updates the description and/or labels of a Network
@@ -1050,11 +1061,11 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def delete_hub(
         self,
-        request: Union[hub.DeleteHubRequest, dict] = None,
+        request: Optional[Union[hub.DeleteHubRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Deletes a Network Connectivity Center hub.
@@ -1174,11 +1185,11 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def list_spokes(
         self,
-        request: Union[hub.ListSpokesRequest, dict] = None,
+        request: Optional[Union[hub.ListSpokesRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListSpokesPager:
         r"""Lists the Network Connectivity Center spokes in a
@@ -1288,11 +1299,11 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def get_spoke(
         self,
-        request: Union[hub.GetSpokeRequest, dict] = None,
+        request: Optional[Union[hub.GetSpokeRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> hub.Spoke:
         r"""Gets details about a Network Connectivity Center
@@ -1400,13 +1411,13 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def create_spoke(
         self,
-        request: Union[hub.CreateSpokeRequest, dict] = None,
+        request: Optional[Union[hub.CreateSpokeRequest, dict]] = None,
         *,
-        parent: str = None,
-        spoke: hub.Spoke = None,
-        spoke_id: str = None,
+        parent: Optional[str] = None,
+        spoke: Optional[hub.Spoke] = None,
+        spoke_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Creates a Network Connectivity Center spoke.
@@ -1544,12 +1555,12 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def update_spoke(
         self,
-        request: Union[hub.UpdateSpokeRequest, dict] = None,
+        request: Optional[Union[hub.UpdateSpokeRequest, dict]] = None,
         *,
-        spoke: hub.Spoke = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        spoke: Optional[hub.Spoke] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Updates the parameters of a Network Connectivity
@@ -1686,11 +1697,11 @@ class HubServiceClient(metaclass=HubServiceClientMeta):
 
     def delete_spoke(
         self,
-        request: Union[hub.DeleteSpokeRequest, dict] = None,
+        request: Optional[Union[hub.DeleteSpokeRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Deletes a Network Connectivity Center spoke.

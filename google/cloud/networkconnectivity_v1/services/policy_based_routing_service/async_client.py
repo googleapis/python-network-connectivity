@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 
 from google.api_core import exceptions as core_exceptions
 from google.api_core import gapic_v1
@@ -184,9 +194,9 @@ class PolicyBasedRoutingServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, PolicyBasedRoutingServiceTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the policy based routing service client.
@@ -230,11 +240,13 @@ class PolicyBasedRoutingServiceAsyncClient:
 
     async def list_policy_based_routes(
         self,
-        request: Union[policy_based_routing.ListPolicyBasedRoutesRequest, dict] = None,
+        request: Optional[
+            Union[policy_based_routing.ListPolicyBasedRoutesRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPolicyBasedRoutesAsyncPager:
         r"""Lists PolicyBasedRoutes in a given project and
@@ -268,7 +280,7 @@ class PolicyBasedRoutingServiceAsyncClient:
                     print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1.types.ListPolicyBasedRoutesRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1.types.ListPolicyBasedRoutesRequest, dict]]):
                 The request object. Request for
                 [PolicyBasedRouting.ListPolicyBasedRoutes][] method.
             parent (:class:`str`):
@@ -344,11 +356,13 @@ class PolicyBasedRoutingServiceAsyncClient:
 
     async def get_policy_based_route(
         self,
-        request: Union[policy_based_routing.GetPolicyBasedRouteRequest, dict] = None,
+        request: Optional[
+            Union[policy_based_routing.GetPolicyBasedRouteRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> policy_based_routing.PolicyBasedRoute:
         r"""Gets details of a single PolicyBasedRoute.
@@ -380,7 +394,7 @@ class PolicyBasedRoutingServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1.types.GetPolicyBasedRouteRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1.types.GetPolicyBasedRouteRequest, dict]]):
                 The request object. Request for
                 [PolicyBasedRouting.GetPolicyBasedRoute][] method.
             name (:class:`str`):
@@ -452,13 +466,15 @@ class PolicyBasedRoutingServiceAsyncClient:
 
     async def create_policy_based_route(
         self,
-        request: Union[policy_based_routing.CreatePolicyBasedRouteRequest, dict] = None,
+        request: Optional[
+            Union[policy_based_routing.CreatePolicyBasedRouteRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
-        policy_based_route: policy_based_routing.PolicyBasedRoute = None,
-        policy_based_route_id: str = None,
+        parent: Optional[str] = None,
+        policy_based_route: Optional[policy_based_routing.PolicyBasedRoute] = None,
+        policy_based_route_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Creates a new PolicyBasedRoute in a given project and
@@ -501,7 +517,7 @@ class PolicyBasedRoutingServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1.types.CreatePolicyBasedRouteRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1.types.CreatePolicyBasedRouteRequest, dict]]):
                 The request object. Request for
                 [PolicyBasedRouting.CreatePolicyBasedRoute][] method.
             parent (:class:`str`):
@@ -598,11 +614,13 @@ class PolicyBasedRoutingServiceAsyncClient:
 
     async def delete_policy_based_route(
         self,
-        request: Union[policy_based_routing.DeletePolicyBasedRouteRequest, dict] = None,
+        request: Optional[
+            Union[policy_based_routing.DeletePolicyBasedRouteRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Deletes a single PolicyBasedRoute.
@@ -638,7 +656,7 @@ class PolicyBasedRoutingServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1.types.DeletePolicyBasedRouteRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1.types.DeletePolicyBasedRouteRequest, dict]]):
                 The request object. Request for
                 [PolicyBasedRouting.DeletePolicyBasedRoute][] method.
             name (:class:`str`):

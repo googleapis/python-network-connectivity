@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from typing import MutableMapping, MutableSequence
+
 from google.protobuf import timestamp_pb2  # type: ignore
 import proto  # type: ignore
 
@@ -70,7 +72,7 @@ class PolicyBasedRoute(proto.Message):
         update_time (google.protobuf.timestamp_pb2.Timestamp):
             Output only. Time when the PolicyBasedRoute
             was updated.
-        labels (Mapping[str, str]):
+        labels (MutableMapping[str, str]):
             User-defined labels.
         description (str):
             Optional. An optional description of this
@@ -91,7 +93,7 @@ class PolicyBasedRoute(proto.Message):
             the lowest-numbered priority value wins. The
             default value is 1000. The priority value must
             be from 1 to 65535, inclusive.
-        warnings (Sequence[google.cloud.networkconnectivity_v1.types.PolicyBasedRoute.Warnings]):
+        warnings (MutableSequence[google.cloud.networkconnectivity_v1.types.PolicyBasedRoute.Warnings]):
             Output only. If potential misconfigurations
             are detected for this route, this field will be
             populated with warning messages.
@@ -108,14 +110,14 @@ class PolicyBasedRoute(proto.Message):
         r"""VM instances to which this policy based route applies to.
 
         Attributes:
-            tags (Sequence[str]):
+            tags (MutableSequence[str]):
                 Optional. A list of VM instance tags to which
                 this policy based route applies to. VM instances
                 that have ANY of tags specified here will
                 install this PBR.
         """
 
-        tags = proto.RepeatedField(
+        tags: MutableSequence[str] = proto.RepeatedField(
             proto.STRING,
             number=1,
         )
@@ -130,7 +132,7 @@ class PolicyBasedRoute(proto.Message):
                 interconnect attachments.
         """
 
-        region = proto.Field(
+        region: str = proto.Field(
             proto.STRING,
             number=1,
         )
@@ -164,19 +166,19 @@ class PolicyBasedRoute(proto.Message):
             PROTOCOL_VERSION_UNSPECIFIED = 0
             IPV4 = 1
 
-        ip_protocol = proto.Field(
+        ip_protocol: str = proto.Field(
             proto.STRING,
             number=1,
         )
-        src_range = proto.Field(
+        src_range: str = proto.Field(
             proto.STRING,
             number=2,
         )
-        dest_range = proto.Field(
+        dest_range: str = proto.Field(
             proto.STRING,
             number=3,
         )
-        protocol_version = proto.Field(
+        protocol_version: "PolicyBasedRoute.Filter.ProtocolVersion" = proto.Field(
             proto.ENUM,
             number=6,
             enum="PolicyBasedRoute.Filter.ProtocolVersion",
@@ -188,7 +190,7 @@ class PolicyBasedRoute(proto.Message):
         Attributes:
             code (google.cloud.networkconnectivity_v1.types.PolicyBasedRoute.Warnings.Code):
                 Output only. A warning code, if applicable.
-            data (Mapping[str, str]):
+            data (MutableMapping[str, str]):
                 Output only. Metadata about this warning in
                 key: value format. The key should provides more
                 detail on the warning being returned. For
@@ -211,84 +213,84 @@ class PolicyBasedRoute(proto.Message):
             RESOURCE_NOT_ACTIVE = 1
             RESOURCE_BEING_MODIFIED = 2
 
-        code = proto.Field(
+        code: "PolicyBasedRoute.Warnings.Code" = proto.Field(
             proto.ENUM,
             number=1,
             enum="PolicyBasedRoute.Warnings.Code",
         )
-        data = proto.MapField(
+        data: MutableMapping[str, str] = proto.MapField(
             proto.STRING,
             proto.STRING,
             number=2,
         )
-        warning_message = proto.Field(
+        warning_message: str = proto.Field(
             proto.STRING,
             number=3,
         )
 
-    virtual_machine = proto.Field(
+    virtual_machine: VirtualMachine = proto.Field(
         proto.MESSAGE,
         number=18,
         oneof="target",
         message=VirtualMachine,
     )
-    interconnect_attachment = proto.Field(
+    interconnect_attachment: InterconnectAttachment = proto.Field(
         proto.MESSAGE,
         number=9,
         oneof="target",
         message=InterconnectAttachment,
     )
-    next_hop_ilb_ip = proto.Field(
+    next_hop_ilb_ip: str = proto.Field(
         proto.STRING,
         number=12,
         oneof="next_hop",
     )
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    create_time = proto.Field(
+    create_time: timestamp_pb2.Timestamp = proto.Field(
         proto.MESSAGE,
         number=2,
         message=timestamp_pb2.Timestamp,
     )
-    update_time = proto.Field(
+    update_time: timestamp_pb2.Timestamp = proto.Field(
         proto.MESSAGE,
         number=3,
         message=timestamp_pb2.Timestamp,
     )
-    labels = proto.MapField(
+    labels: MutableMapping[str, str] = proto.MapField(
         proto.STRING,
         proto.STRING,
         number=4,
     )
-    description = proto.Field(
+    description: str = proto.Field(
         proto.STRING,
         number=5,
     )
-    network = proto.Field(
+    network: str = proto.Field(
         proto.STRING,
         number=6,
     )
-    filter = proto.Field(
+    filter: Filter = proto.Field(
         proto.MESSAGE,
         number=10,
         message=Filter,
     )
-    priority = proto.Field(
+    priority: int = proto.Field(
         proto.INT32,
         number=11,
     )
-    warnings = proto.RepeatedField(
+    warnings: MutableSequence[Warnings] = proto.RepeatedField(
         proto.MESSAGE,
         number=14,
         message=Warnings,
     )
-    self_link = proto.Field(
+    self_link: str = proto.Field(
         proto.STRING,
         number=15,
     )
-    kind = proto.Field(
+    kind: str = proto.Field(
         proto.STRING,
         number=16,
     )
@@ -312,23 +314,23 @@ class ListPolicyBasedRoutesRequest(proto.Message):
             Sort the results by a certain order.
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    page_size = proto.Field(
+    page_size: int = proto.Field(
         proto.INT32,
         number=2,
     )
-    page_token = proto.Field(
+    page_token: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    filter = proto.Field(
+    filter: str = proto.Field(
         proto.STRING,
         number=4,
     )
-    order_by = proto.Field(
+    order_by: str = proto.Field(
         proto.STRING,
         number=5,
     )
@@ -338,13 +340,13 @@ class ListPolicyBasedRoutesResponse(proto.Message):
     r"""Response for [PolicyBasedRouting.ListPolicyBasedRoutes][] method.
 
     Attributes:
-        policy_based_routes (Sequence[google.cloud.networkconnectivity_v1.types.PolicyBasedRoute]):
+        policy_based_routes (MutableSequence[google.cloud.networkconnectivity_v1.types.PolicyBasedRoute]):
             Policy based routes to be returned.
         next_page_token (str):
             The next pagination token in the List response. It should be
             used as page_token for the following request. An empty value
             means no more result.
-        unreachable (Sequence[str]):
+        unreachable (MutableSequence[str]):
             Locations that could not be reached.
     """
 
@@ -352,16 +354,16 @@ class ListPolicyBasedRoutesResponse(proto.Message):
     def raw_page(self):
         return self
 
-    policy_based_routes = proto.RepeatedField(
+    policy_based_routes: MutableSequence["PolicyBasedRoute"] = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
         message="PolicyBasedRoute",
     )
-    next_page_token = proto.Field(
+    next_page_token: str = proto.Field(
         proto.STRING,
         number=2,
     )
-    unreachable = proto.RepeatedField(
+    unreachable: MutableSequence[str] = proto.RepeatedField(
         proto.STRING,
         number=3,
     )
@@ -376,7 +378,7 @@ class GetPolicyBasedRouteRequest(proto.Message):
             resource to get.
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -415,20 +417,20 @@ class CreatePolicyBasedRouteRequest(proto.Message):
             (00000000-0000-0000-0000-000000000000).
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    policy_based_route_id = proto.Field(
+    policy_based_route_id: str = proto.Field(
         proto.STRING,
         number=2,
     )
-    policy_based_route = proto.Field(
+    policy_based_route: "PolicyBasedRoute" = proto.Field(
         proto.MESSAGE,
         number=3,
         message="PolicyBasedRoute",
     )
-    request_id = proto.Field(
+    request_id: str = proto.Field(
         proto.STRING,
         number=4,
     )
@@ -461,11 +463,11 @@ class DeletePolicyBasedRouteRequest(proto.Message):
             (00000000-0000-0000-0000-000000000000).
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    request_id = proto.Field(
+    request_id: str = proto.Field(
         proto.STRING,
         number=2,
     )

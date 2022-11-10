@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 
 from google.api_core import exceptions as core_exceptions
 from google.api_core import gapic_v1
@@ -177,9 +187,9 @@ class HubServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, HubServiceTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the hub service client.
@@ -223,11 +233,11 @@ class HubServiceAsyncClient:
 
     async def list_hubs(
         self,
-        request: Union[hub.ListHubsRequest, dict] = None,
+        request: Optional[Union[hub.ListHubsRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListHubsAsyncPager:
         r"""Lists Hubs in a given project and location.
@@ -260,7 +270,7 @@ class HubServiceAsyncClient:
                     print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.ListHubsRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.ListHubsRequest, dict]]):
                 The request object. Request for
                 [HubService.ListHubs][google.cloud.networkconnectivity.v1alpha1.HubService.ListHubs]
                 method.
@@ -338,11 +348,11 @@ class HubServiceAsyncClient:
 
     async def get_hub(
         self,
-        request: Union[hub.GetHubRequest, dict] = None,
+        request: Optional[Union[hub.GetHubRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> hub.Hub:
         r"""Gets details of a single Hub.
@@ -374,7 +384,7 @@ class HubServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.GetHubRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.GetHubRequest, dict]]):
                 The request object. Request for
                 [HubService.GetHub][google.cloud.networkconnectivity.v1alpha1.HubService.GetHub]
                 method.
@@ -446,13 +456,13 @@ class HubServiceAsyncClient:
 
     async def create_hub(
         self,
-        request: Union[gcn_hub.CreateHubRequest, dict] = None,
+        request: Optional[Union[gcn_hub.CreateHubRequest, dict]] = None,
         *,
-        parent: str = None,
-        hub: gcn_hub.Hub = None,
-        hub_id: str = None,
+        parent: Optional[str] = None,
+        hub: Optional[gcn_hub.Hub] = None,
+        hub_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Creates a new Hub in a given project and location.
@@ -488,7 +498,7 @@ class HubServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.CreateHubRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.CreateHubRequest, dict]]):
                 The request object. Request for
                 [HubService.CreateHub][google.cloud.networkconnectivity.v1alpha1.HubService.CreateHub]
                 method.
@@ -586,12 +596,12 @@ class HubServiceAsyncClient:
 
     async def update_hub(
         self,
-        request: Union[gcn_hub.UpdateHubRequest, dict] = None,
+        request: Optional[Union[gcn_hub.UpdateHubRequest, dict]] = None,
         *,
-        hub: gcn_hub.Hub = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        hub: Optional[gcn_hub.Hub] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Updates the parameters of a single Hub.
@@ -626,7 +636,7 @@ class HubServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.UpdateHubRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.UpdateHubRequest, dict]]):
                 The request object. Request for
                 [HubService.UpdateHub][google.cloud.networkconnectivity.v1alpha1.HubService.UpdateHub]
                 method.
@@ -719,11 +729,11 @@ class HubServiceAsyncClient:
 
     async def delete_hub(
         self,
-        request: Union[hub.DeleteHubRequest, dict] = None,
+        request: Optional[Union[hub.DeleteHubRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Deletes a single Hub.
@@ -759,7 +769,7 @@ class HubServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.DeleteHubRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.DeleteHubRequest, dict]]):
                 The request object. The request for
                 [HubService.DeleteHub][google.cloud.networkconnectivity.v1alpha1.HubService.DeleteHub].
             name (:class:`str`):
@@ -843,11 +853,11 @@ class HubServiceAsyncClient:
 
     async def list_spokes(
         self,
-        request: Union[hub.ListSpokesRequest, dict] = None,
+        request: Optional[Union[hub.ListSpokesRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListSpokesAsyncPager:
         r"""Lists Spokes in a given project and location.
@@ -880,7 +890,7 @@ class HubServiceAsyncClient:
                     print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.ListSpokesRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.ListSpokesRequest, dict]]):
                 The request object. The request for
                 [HubService.ListSpokes][google.cloud.networkconnectivity.v1alpha1.HubService.ListSpokes].
             parent (:class:`str`):
@@ -956,11 +966,11 @@ class HubServiceAsyncClient:
 
     async def get_spoke(
         self,
-        request: Union[hub.GetSpokeRequest, dict] = None,
+        request: Optional[Union[hub.GetSpokeRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> hub.Spoke:
         r"""Gets details of a single Spoke.
@@ -992,7 +1002,7 @@ class HubServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.GetSpokeRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.GetSpokeRequest, dict]]):
                 The request object. The request for
                 [HubService.GetSpoke][google.cloud.networkconnectivity.v1alpha1.HubService.GetSpoke].
             name (:class:`str`):
@@ -1059,13 +1069,13 @@ class HubServiceAsyncClient:
 
     async def create_spoke(
         self,
-        request: Union[hub.CreateSpokeRequest, dict] = None,
+        request: Optional[Union[hub.CreateSpokeRequest, dict]] = None,
         *,
-        parent: str = None,
-        spoke: hub.Spoke = None,
-        spoke_id: str = None,
+        parent: Optional[str] = None,
+        spoke: Optional[hub.Spoke] = None,
+        spoke_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Creates a new Spoke in a given project and location.
@@ -1101,7 +1111,7 @@ class HubServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.CreateSpokeRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.CreateSpokeRequest, dict]]):
                 The request object. The request for
                 [HubService.CreateSpoke][google.cloud.networkconnectivity.v1alpha1.HubService.CreateSpoke].
             parent (:class:`str`):
@@ -1197,12 +1207,12 @@ class HubServiceAsyncClient:
 
     async def update_spoke(
         self,
-        request: Union[hub.UpdateSpokeRequest, dict] = None,
+        request: Optional[Union[hub.UpdateSpokeRequest, dict]] = None,
         *,
-        spoke: hub.Spoke = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        spoke: Optional[hub.Spoke] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Updates the parameters of a single Spoke.
@@ -1237,7 +1247,7 @@ class HubServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.UpdateSpokeRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.UpdateSpokeRequest, dict]]):
                 The request object. Request for
                 [HubService.UpdateSpoke][google.cloud.networkconnectivity.v1alpha1.HubService.UpdateSpoke]
                 method.
@@ -1331,11 +1341,11 @@ class HubServiceAsyncClient:
 
     async def delete_spoke(
         self,
-        request: Union[hub.DeleteSpokeRequest, dict] = None,
+        request: Optional[Union[hub.DeleteSpokeRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Deletes a single Spoke.
@@ -1371,7 +1381,7 @@ class HubServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.networkconnectivity_v1alpha1.types.DeleteSpokeRequest, dict]):
+            request (Optional[Union[google.cloud.networkconnectivity_v1alpha1.types.DeleteSpokeRequest, dict]]):
                 The request object. The request for
                 [HubService.DeleteSpoke][google.cloud.networkconnectivity.v1alpha1.HubService.DeleteSpoke].
             name (:class:`str`):
