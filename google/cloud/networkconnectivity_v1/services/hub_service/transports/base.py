@@ -32,7 +32,7 @@ from google.cloud.networkconnectivity_v1.types import hub as gcn_hub
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
         gapic_version=pkg_resources.get_distribution(
-            "google-cloud-networkconnectivity",
+            "google-cloud-network-connectivity",
         ).version,
     )
 except pkg_resources.DistributionNotFound:
