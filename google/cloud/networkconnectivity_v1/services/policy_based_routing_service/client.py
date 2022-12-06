@@ -38,7 +38,8 @@ from google.auth.exceptions import MutualTLSChannelError  # type: ignore
 from google.auth.transport import mtls  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
 from google.oauth2 import service_account  # type: ignore
-import pkg_resources
+
+from google.cloud.networkconnectivity_v1 import gapic_version as package_version
 
 try:
     OptionalRetry = Union[retries.Retry, gapic_v1.method._MethodDefault]
@@ -477,7 +478,7 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
         *,
         parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPolicyBasedRoutesPager:
         r"""Lists PolicyBasedRoutes in a given project and
@@ -593,7 +594,7 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> policy_based_routing.PolicyBasedRoute:
         r"""Gets details of a single PolicyBasedRoute.
@@ -705,7 +706,7 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
         policy_based_route: Optional[policy_based_routing.PolicyBasedRoute] = None,
         policy_based_route_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Creates a new PolicyBasedRoute in a given project and
@@ -853,7 +854,7 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
         *,
         name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: Optional[float] = None,
+        timeout: Union[float, object] = gapic_v1.method.DEFAULT,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation.Operation:
         r"""Deletes a single PolicyBasedRoute.
@@ -987,14 +988,9 @@ class PolicyBasedRoutingServiceClient(metaclass=PolicyBasedRoutingServiceClientM
         self.transport.close()
 
 
-try:
-    DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution(
-            "google-cloud-network-connectivity",
-        ).version,
-    )
-except pkg_resources.DistributionNotFound:
-    DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
+DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
+    gapic_version=package_version.__version__
+)
 
 
 __all__ = ("PolicyBasedRoutingServiceClient",)
