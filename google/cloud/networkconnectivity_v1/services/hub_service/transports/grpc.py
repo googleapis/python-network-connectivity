@@ -252,8 +252,7 @@ class HubServiceGrpcTransport(HubServiceTransport):
     def list_hubs(self) -> Callable[[hub.ListHubsRequest], hub.ListHubsResponse]:
         r"""Return a callable for the list hubs method over gRPC.
 
-        Lists the Network Connectivity Center hubs associated
-        with a given project.
+        Lists hubs in a given project.
 
         Returns:
             Callable[[~.ListHubsRequest],
@@ -277,7 +276,7 @@ class HubServiceGrpcTransport(HubServiceTransport):
     def get_hub(self) -> Callable[[hub.GetHubRequest], hub.Hub]:
         r"""Return a callable for the get hub method over gRPC.
 
-        Gets details about a Network Connectivity Center hub.
+        Gets details about the specified hub.
 
         Returns:
             Callable[[~.GetHubRequest],
@@ -303,8 +302,7 @@ class HubServiceGrpcTransport(HubServiceTransport):
     ) -> Callable[[gcn_hub.CreateHubRequest], operations_pb2.Operation]:
         r"""Return a callable for the create hub method over gRPC.
 
-        Creates a new Network Connectivity Center hub in the
-        specified project.
+        Creates a new hub in the specified project.
 
         Returns:
             Callable[[~.CreateHubRequest],
@@ -330,8 +328,8 @@ class HubServiceGrpcTransport(HubServiceTransport):
     ) -> Callable[[gcn_hub.UpdateHubRequest], operations_pb2.Operation]:
         r"""Return a callable for the update hub method over gRPC.
 
-        Updates the description and/or labels of a Network
-        Connectivity Center hub.
+        Updates the description and/or labels of the
+        specified hub.
 
         Returns:
             Callable[[~.UpdateHubRequest],
@@ -355,7 +353,7 @@ class HubServiceGrpcTransport(HubServiceTransport):
     def delete_hub(self) -> Callable[[hub.DeleteHubRequest], operations_pb2.Operation]:
         r"""Return a callable for the delete hub method over gRPC.
 
-        Deletes a Network Connectivity Center hub.
+        Deletes the specified hub.
 
         Returns:
             Callable[[~.DeleteHubRequest],
@@ -379,8 +377,8 @@ class HubServiceGrpcTransport(HubServiceTransport):
     def list_spokes(self) -> Callable[[hub.ListSpokesRequest], hub.ListSpokesResponse]:
         r"""Return a callable for the list spokes method over gRPC.
 
-        Lists the Network Connectivity Center spokes in a
-        specified project and location.
+        Lists the spokes in the specified project and
+        location.
 
         Returns:
             Callable[[~.ListSpokesRequest],
@@ -404,8 +402,7 @@ class HubServiceGrpcTransport(HubServiceTransport):
     def get_spoke(self) -> Callable[[hub.GetSpokeRequest], hub.Spoke]:
         r"""Return a callable for the get spoke method over gRPC.
 
-        Gets details about a Network Connectivity Center
-        spoke.
+        Gets details about the specified spoke.
 
         Returns:
             Callable[[~.GetSpokeRequest],
@@ -431,7 +428,8 @@ class HubServiceGrpcTransport(HubServiceTransport):
     ) -> Callable[[hub.CreateSpokeRequest], operations_pb2.Operation]:
         r"""Return a callable for the create spoke method over gRPC.
 
-        Creates a Network Connectivity Center spoke.
+        Creates a spoke in the specified project and
+        location.
 
         Returns:
             Callable[[~.CreateSpokeRequest],
@@ -457,8 +455,7 @@ class HubServiceGrpcTransport(HubServiceTransport):
     ) -> Callable[[hub.UpdateSpokeRequest], operations_pb2.Operation]:
         r"""Return a callable for the update spoke method over gRPC.
 
-        Updates the parameters of a Network Connectivity
-        Center spoke.
+        Updates the parameters of the specified spoke.
 
         Returns:
             Callable[[~.UpdateSpokeRequest],
@@ -484,7 +481,7 @@ class HubServiceGrpcTransport(HubServiceTransport):
     ) -> Callable[[hub.DeleteSpokeRequest], operations_pb2.Operation]:
         r"""Return a callable for the delete spoke method over gRPC.
 
-        Deletes a Network Connectivity Center spoke.
+        Deletes the specified spoke.
 
         Returns:
             Callable[[~.DeleteSpokeRequest],
