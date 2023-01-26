@@ -259,7 +259,8 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     ) -> Callable[[hub.ListHubsRequest], Awaitable[hub.ListHubsResponse]]:
         r"""Return a callable for the list hubs method over gRPC.
 
-        Lists hubs in a given project.
+        Lists the Network Connectivity Center hubs associated
+        with a given project.
 
         Returns:
             Callable[[~.ListHubsRequest],
@@ -283,7 +284,7 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     def get_hub(self) -> Callable[[hub.GetHubRequest], Awaitable[hub.Hub]]:
         r"""Return a callable for the get hub method over gRPC.
 
-        Gets details about the specified hub.
+        Gets details about a Network Connectivity Center hub.
 
         Returns:
             Callable[[~.GetHubRequest],
@@ -309,7 +310,8 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     ) -> Callable[[gcn_hub.CreateHubRequest], Awaitable[operations_pb2.Operation]]:
         r"""Return a callable for the create hub method over gRPC.
 
-        Creates a new hub in the specified project.
+        Creates a new Network Connectivity Center hub in the
+        specified project.
 
         Returns:
             Callable[[~.CreateHubRequest],
@@ -335,8 +337,8 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     ) -> Callable[[gcn_hub.UpdateHubRequest], Awaitable[operations_pb2.Operation]]:
         r"""Return a callable for the update hub method over gRPC.
 
-        Updates the description and/or labels of the
-        specified hub.
+        Updates the description and/or labels of a Network
+        Connectivity Center hub.
 
         Returns:
             Callable[[~.UpdateHubRequest],
@@ -362,7 +364,7 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     ) -> Callable[[hub.DeleteHubRequest], Awaitable[operations_pb2.Operation]]:
         r"""Return a callable for the delete hub method over gRPC.
 
-        Deletes the specified hub.
+        Deletes a Network Connectivity Center hub.
 
         Returns:
             Callable[[~.DeleteHubRequest],
@@ -388,8 +390,8 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     ) -> Callable[[hub.ListSpokesRequest], Awaitable[hub.ListSpokesResponse]]:
         r"""Return a callable for the list spokes method over gRPC.
 
-        Lists the spokes in the specified project and
-        location.
+        Lists the Network Connectivity Center spokes in a
+        specified project and location.
 
         Returns:
             Callable[[~.ListSpokesRequest],
@@ -413,7 +415,8 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     def get_spoke(self) -> Callable[[hub.GetSpokeRequest], Awaitable[hub.Spoke]]:
         r"""Return a callable for the get spoke method over gRPC.
 
-        Gets details about the specified spoke.
+        Gets details about a Network Connectivity Center
+        spoke.
 
         Returns:
             Callable[[~.GetSpokeRequest],
@@ -439,8 +442,7 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     ) -> Callable[[hub.CreateSpokeRequest], Awaitable[operations_pb2.Operation]]:
         r"""Return a callable for the create spoke method over gRPC.
 
-        Creates a spoke in the specified project and
-        location.
+        Creates a Network Connectivity Center spoke.
 
         Returns:
             Callable[[~.CreateSpokeRequest],
@@ -466,7 +468,8 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     ) -> Callable[[hub.UpdateSpokeRequest], Awaitable[operations_pb2.Operation]]:
         r"""Return a callable for the update spoke method over gRPC.
 
-        Updates the parameters of the specified spoke.
+        Updates the parameters of a Network Connectivity
+        Center spoke.
 
         Returns:
             Callable[[~.UpdateSpokeRequest],
@@ -492,7 +495,7 @@ class HubServiceGrpcAsyncIOTransport(HubServiceTransport):
     ) -> Callable[[hub.DeleteSpokeRequest], Awaitable[operations_pb2.Operation]]:
         r"""Return a callable for the delete spoke method over gRPC.
 
-        Deletes the specified spoke.
+        Deletes a Network Connectivity Center spoke.
 
         Returns:
             Callable[[~.DeleteSpokeRequest],
